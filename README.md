@@ -67,7 +67,21 @@ Create a PDF file (a "picturebook") from a folder containing images, with suppor
 
 ### Notes
 
-_TBW_
+The `picturebook` tool does not download photos from Cooper Hewitt. That is left to another process to do using the [Cooper Hewitt API](https://collection.cooperhewitt.org/api/) and specifically the [cooperhewitt.shoebox.items](https://collection.cooperhewitt.org/api/methods/#cooperhewitt.shoebox.items) methods. 
+
+It also makes the following assumptions about file names and file structures:
+
+* That the results of the [cooperhewitt.shoebox.items.getInfo](https://collection.cooperhewitt.org/api/methods/cooperhewitt.shoebox.items.getInfo) API method have been captured and stored in a file titled `{SHOEBOX_ID}.json`.
+* The original photo or image has been downloaded and stored in the same directory as the `{SHOEBOX_ID}.json` file. This is the image with the `_b.jpg` suffix.
+
+
+For example:
+
+```
+$> ls -al cooperhewitt/104/905/9
+-rw-r--r--   1 user  staff     6272 Nov 29  2017 18649107.json
+-rw-r--r--   1 user  staff  1329530 Nov 29  2017 89859_be1ef14e2e459ec9_b.jpg
+```
 
 ## See also
 
