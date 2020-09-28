@@ -4,19 +4,19 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	pb_filter "github.com/aaronland/go-picturebook/filter"
 	"github.com/tidwall/gjson"
 	"gocloud.dev/blob"
 	"io/ioutil"
 	"net/url"
 	"path/filepath"
 	"strings"
-	pb_filter "github.com/aaronland/go-picturebook/filter"		
 )
 
 func init() {
 
 	ctx := context.Background()
-	err := pb_filter.RegisterFilter(ctx, "cooperhewittx", NewCooperHewittFilter)
+	err := pb_filter.RegisterFilter(ctx, "cooperhewitt", NewCooperHewittFilter)
 
 	if err != nil {
 		panic(err)

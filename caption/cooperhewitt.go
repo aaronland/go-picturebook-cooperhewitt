@@ -5,19 +5,19 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	pb_caption "github.com/aaronland/go-picturebook/caption"
 	"github.com/tidwall/gjson"
 	"gocloud.dev/blob"
 	"io/ioutil"
 	"net/url"
 	"path/filepath"
 	"time"
-	pb_caption "github.com/aaronland/go-picturebook/caption"	
 )
 
 func init() {
 
 	ctx := context.Background()
-	err := pb_caption.RegisterCaption(ctx, "cooperhewittx", NewCooperHewittCaption)
+	err := pb_caption.RegisterCaption(ctx, "cooperhewitt", NewCooperHewittCaption)
 
 	if err != nil {
 		panic(err)
