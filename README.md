@@ -1,5 +1,7 @@
 # go-picturebook-cooperhewitt
 
+![](docs/images/picturebook-cooperhewitt-pdf.png)
+
 Create a PDF file (a "picturebook") from a folder containing images, with support for images exported from the Cooper Hewitt API.
 
 ## Important
