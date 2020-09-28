@@ -16,7 +16,7 @@ import (
 func init() {
 
 	ctx := context.Background()
-	err := pb_filter.RegisterFilter(ctx, "cooperhewitt", NewCooperHewittFilter)
+	err := pb_filter.RegisterFilter(ctx, "cooperhewittx", NewCooperHewittFilter)
 
 	if err != nil {
 		panic(err)
