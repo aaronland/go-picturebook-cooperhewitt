@@ -85,6 +85,36 @@ $> ls -al cooperhewitt/104/905/9
 -rw-r--r--   1 user  staff  1329530 Nov 29  2017 89859_be1ef14e2e459ec9_b.jpg
 ```
 
+## Handlers
+
+The `picturebook` application supports a number of "handlers" for customizing which images are included, how and whether they are transformed before inclusion and how to derive that image's caption.
+
+In addition to the default `picturebook` handlers this package exports the following:
+
+### Captions
+
+```
+type Caption interface {
+	Text(context.Context, string) (string, error)
+}
+```
+
+#### cooperhewitt://
+
+This handler will derive the title for a Cooper Hewitt collection object using data stored in a `index.json` file, alongside an image. The data in the file is expected to be the out of a call to the [cooperhewitt.shoebox.items.getInfo](https://collection.cooperhewitt.org/api/methods/cooperhewitt.shoebox.items.getInfo) API method.
+
+### Filters
+
+```
+type Filter interface {
+	Continue(context.Context, string) (bool, error)
+}
+```
+
+#### cooperhewitt://
+
+This handler will ensure that only images whose filename matches `_b.jpg$` and that have a sibling `index.json` file are included.
+
 ## See also
 
 * https://github.com/aaronland/go-picturebook
